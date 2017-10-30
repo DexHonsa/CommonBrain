@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+	
+    <title>CommonBrain</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="icon" href="img/logo_1.png">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/animate.css">
+<!--    <link rel="stylesheet" href="css/css.css">-->
+   <link rel="stylesheet" href="css/product.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+   <link rel="stylesheet" href="css/tooltipster.bundle.min.css">
+   
+
+    <!-- Custom Fonts -->
+    <script src="https://use.fontawesome.com/5e41b39538.js"></script>
+	<script src='https://api.mapbox.com/mapbox-gl-js/v0.40.0/mapbox-gl.js'></script>
+	<link href='https://api.mapbox.com/mapbox-gl-js/v0.40.0/mapbox-gl.css' rel='stylesheet' />
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<style>
+.marker {
+    display: block;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    padding: 0;
+}
+</style>
+
+<body>
+
+<div class="main-stage">
+	<div class="main-nav">
+	<div class="container nav-container">
+		<div class="logo"><img src="img/logo_color_with_line.png" alt=""></div>
+		<div class="nav-list">
+			<ul>
+				<a href="dashboard.html"><li>Getting Started</li></a>
+				<a href="my-projects.html"><li class="active">My Portfolios</li></a>
+				<a href="my-templates.html"><li>My Templates</li></a>
+			</ul>
+			<ul class="login-list">
+				<li>Welcome</li>
+				<li id="logout"><i class="fa fa-user-circle-o"></i>
+				<div class="notifications-dropdown animated-fast">
+						<div class="caret"></div>
+					<a href="login.html">Logout</a><br>
+					<a href="settings.html">Settings</a>
+					</div>
+					</li>
+				<li id="alerts"><i class="fa fa-bell"></i>
+					<div class="notifications-dropdown animated-fast">
+						<div class="caret"></div>
+					No New Notifications</div>
+				</li>
+			</ul>
+		</div>
+		</div>
+	</div>
+	<div class="container">
+	<div class="fixed-address-bar animated " style="display: none; opacity: 0;">
+		<div class="container" style="display: flex; align-items: center;">6024 4th Avenue, Brooklyn, NY 11220
+		<div style=" margin-left: auto; display: flex; align-items: center;">
+			<div class="broker-img" style="width:50px; height:50px;"></div>
+			<div class="broker-name" >Swany Vazquez</div>
+			<div class="broker-email"  style="padding:15px;"><a href="mailto:svazquez@epic-cr.com">svazquez@epic-cr.com</a></div>
+					<div class="broker-phone"><i class="fa fa-mobile"></i> (646) 278-4638</div>
+		</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-3">
+			<div class="side-nav">
+				<ul>
+					<a href="property_1.html"><li class="active">Property</li></a>
+<!--					<a href="mortgage_1.html"><li>Loan</li></a>-->
+					
+					<a href="property-exporting_1.html"><li>Asset Summary</li></a>
+<!--					<a href="property-files_1.html"><li>Files</li></a>-->
+					
+					<div class="divider"></div>
+					<li style="color:#d0d0d0">Visualize Portfolio</li>
+					<a href="property-exceptions_1.html"><li>Exceptions</li></a>
+<!--					<a href="img/Sample Property Template.xlsx"><li>Main Template</li></a>-->
+				</ul>
+				<div class="broker-container">
+					<div class="broker-img"></div>
+					<div class="broker-name">Swany Vazquez</div>
+					<div class="broker-email"><a href="mailto:svazquez@epic-cr.com">svazquez@epic-cr.com</a></div>
+					<div class="broker-phone"><i class="fa fa-mobile"></i> (646) 278-4638</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-9">
+			<div class="side-stage">
+				<div class="property-main-title">6024 4th Avenue, Brooklyn, NY 11220</div>
+				<div class="property-top-container">
+					<div class="property-img" style="background-image: url(img/epic_building.jpg);float: left"><img src="img/epic.png" alt=""></div>
+					<div class="property-side-details" style="padding:0; padding-left:15px;"><div id="map" style="width: 100%; height: 330px;"></div></div>
+<!--
+					<div class="property-side-details">
+						<ul>
+							<li>
+								<div class="property-info-item">
+									<div class="property-info-title">Zoning Type</div>
+									<div class="property-info-value">R7A/C2-4</div>
+								</div>
+							</li>
+							<li>
+								<div class="property-info-item">
+									<div class="property-info-title">Square Footage</div>
+									<div class="property-info-value"><span class="tooltip" title="Per Public Record">14,400 SF</span></div>
+								</div>
+							</li>
+							
+							<li>
+								<div class="property-info-item">
+									<div class="property-info-title">Last Sale Date</div>
+									<div class="property-info-value">NAV</div>
+								</div>
+							</li>
+							<li>
+								<div class="addition-data-source"><i class="fa-info-circle fa"></i> Data above is sourced from API/public records.</div>
+							</li>
+						</ul>
+					</div>
+-->
+				</div>
+				
+				<!--Property Details-->
+				<div class="basic-detail-block">
+					<div class="basic-detail-main-title">Property Details</div>
+					<div class="basic-detail-block-detail-container">
+						
+						<div class="basic-detail-block-detail-item">
+							<div class="basic-detail-block-title">Neighborhood</div>
+							<div class="basic-detail-block-value"><a  target="_blank" href="img/epic_asset_sum.pdf#page=4">Sunset Park Brooklyn</a></div>
+						</div>
+						<div class="basic-detail-block-detail-item">
+							<div class="basic-detail-block-title">Property Type</div>
+							<div class="basic-detail-block-value">Mixed-Use</div>
+						</div>
+						<div class="basic-detail-block-detail-item">
+							<div class="basic-detail-block-title">No. Stories</div>
+							<div class="basic-detail-block-value">4</div>
+						</div>
+						<div class="basic-detail-block-detail-item">
+							<div class="basic-detail-block-title">Year Built</div>
+							<div class="basic-detail-block-value">1916</div>
+						</div>
+						<div class="basic-detail-block-detail-item">
+							<div class="basic-detail-block-title">Total # of Units</div>
+							<div class="basic-detail-block-value"><a href="img/epic_asset_sum.pdf#page=3">65</a></div>
+						</div>
+						<div class="basic-detail-block-detail-item">
+							<div class="basic-detail-block-title">Lot SF</div>
+							<div class="basic-detail-block-value"><span class="tooltip" title=" 40’ X 100’ (Block Lot 5781/41)"><a target="new" href="img/tax-block.jpg">4,000 SF</a></span></div>
+						</div>
+						
+						
+						<div class="basic-detail-block-detail-item">
+							<div class="basic-detail-block-title">Number of Residential Rooms</div>
+							<div class="basic-detail-block-value"><a target="_blank" href="img/epic_asset_sum.pdf#page=3">63</a></div>
+						</div>
+						<div class="basic-detail-block-detail-item">
+							<div class="basic-detail-block-title">Built SF</div>
+							<div class="basic-detail-block-value"><span class="tooltip" title=" 40' X 90' X 4 floors">14,400 SF</span></div>
+						</div>
+						
+						<div class="basic-detail-block-detail-item">
+							<div class="basic-detail-block-title">Number of Retail Units</div>
+							<div class="basic-detail-block-value"><a target="_blank" href="http://www.crosscountymall.com/sample-lease-cc-mall.pdf">2</a></div>
+						</div>
+						
+						<div class="basic-detail-block-detail-item">
+							<div class="basic-detail-block-title">Total Buildable</div>
+							<div class="basic-detail-block-value"><span class="tooltip" title=" As-Built FAR: 3.6, Max FAR 4.0">16,000 SF</span></div>
+						</div>
+						
+					</div>
+				</div>
+				
+				<!--Financial Details -->
+				<div class="basic-detail-block">
+					<div class="basic-detail-main-title">Financial Details</div>
+					<div class="basic-detail-block-detail-container">
+						
+						<div class="basic-detail-block-detail-item">
+							<div class="basic-detail-block-title">Offering Price</div>
+							<div class="basic-detail-block-value">$8,000,000</div>
+						</div>
+						<div class="basic-detail-block-detail-item">
+							<div class="basic-detail-block-title">Price PSF</div>
+							<div class="basic-detail-block-value"><span class="tooltip" title="$8,000,000 / 14,400">$556</span></div>
+						</div>
+						<div class="basic-detail-block-detail-item ">
+							<div class="basic-detail-block-title">Revenue</div>
+							<div class="basic-detail-block-value"><a target="_blank" href="img/epic_asset_sum.pdf#page=3">$238,255</a></div>
+						</div>
+						<div class="basic-detail-block-detail-item ">
+							<div class="basic-detail-block-title">NOI</div>
+							<div class="basic-detail-block-value"><a target="_blank" href="img/epic_asset_sum.pdf#page=3">$160,977</a></div>
+						</div>
+						<div class="basic-detail-block-detail-item ">
+							<div class="basic-detail-block-title">Residential Revenue</div>
+							<div class="basic-detail-block-value"><span class="tooltip" title="79% of Total Revenue"><a target="_blank" href="img/epic_asset_sum.pdf#page=3">$187,207</a></span></div>
+						</div>
+						<div class="basic-detail-block-detail-item ">
+							<div class="basic-detail-block-title">NOI Margin</div>
+							<div class="basic-detail-block-value"><span class="tooltip" title="NOI / Revenue"><a target="_blank" href="img/epic_asset_sum.pdf#page=3">68%</a></span></div>
+						</div>
+						<div class="basic-detail-block-detail-item ">
+							<div class="basic-detail-block-title">Retail Revenue</div>
+							<div class="basic-detail-block-value"><span class="tooltip" title="21% of Total Revenue"><a target="_blank" href="img/epic_asset_sum.pdf#page=3">$51,048</a></span></div>
+						</div>
+						
+						<div class="basic-detail-block-detail-item ">
+							<div class="basic-detail-block-title">In Place Cap Rate</div>
+							<div class="basic-detail-block-value"><a target="_blank" href="http://www.brooklyneagle.com/articles/2017/3/7/brooklyn-property-investors-multifamily-assets-are-mainstay
+">2.0%</a></div>
+						</div>
+						
+						
+					</div>
+				</div>
+				<!--additional information-->
+				<div class="basic-detail-block">
+					<div class="basic-detail-main-title">Additional Information</div>
+					<div class="basic-detail-block-detail-container">
+						<div class="basic-detail-block-detail-item">
+							<div class="basic-detail-block-title">Taxes (16/17)</div>
+							<div class="basic-detail-block-value"><a href="http://webapps.nyc.gov:8084/CICS/f704/f403001I?BBL=3-05781-0041-"><span class="tooltip" title="Assessment: $393,300">$20,989</span></a> </div>
+						</div>
+						<div class="basic-detail-block-detail-item">
+							<div class="basic-detail-block-title">APN / Parcel ID</div>
+							<div class="basic-detail-block-value"><a href="http://webapps.nyc.gov:8084/CICS/f704/f403001I?BBL=3-05781-0041-">05781-0041</a></div>
+						</div>
+						
+						<div class="basic-detail-block-detail-item">
+							<div class="basic-detail-block-title">Zoning</div>
+							<div class="basic-detail-block-value">R7A/C2-4</div>
+						</div>
+						<div class="basic-detail-block-detail-item">
+							<div class="basic-detail-block-title">Building Class</div>
+							<div class="basic-detail-block-value"><span class="tooltip" title="Walk-Up Apt. Over six families with stores."><a href="http://www1.nyc.gov/assets/finance/jump/hlpbldgcode.html">C7</a></span></div>
+						</div>
+						
+						
+						
+					</div>
+				</div>
+				
+				
+				<!--Document Storage-->
+				<div class="basic-detail-block">
+					<div class="basic-detail-main-title">Document Storage</div>
+					<div class="basic-detail-block-detail-container">
+						<div class="basic-detail-block-detail-item full">
+							<div class="basic-detail-block-title">
+							<a  target="_blank" href="http://dropbox.com"><i class="fa fa-dropbox"></i> Dropbox</a></div>
+							
+						</div>
+						
+						<div class="basic-detail-block-detail-item full">
+							<div class="basic-detail-block-title">
+							<a  target="_blank" href="">Box</a></div>
+							
+						</div>
+						<div class="basic-detail-block-detail-item full">
+							<div class="basic-detail-block-title">
+							<a  target="_blank" target="_blank" href="">Sharepoint</a></div>
+							
+						</div>
+						
+					</div>
+				</div>
+				
+				<!--Document Storage-->
+				<div class="basic-detail-block">
+					<div class="basic-detail-main-title">Links to Outside Data Sources</div>
+					<div class="basic-detail-block-detail-container">
+						<div class="basic-detail-block-detail-item ">
+							<div class="basic-detail-block-title ">
+							<a target="_blank" href="http://www.argussoftware.com/"><img style="height:25px;" src="img/AAEAAQAAAAAAAAmkAAAAJGZjNDZmOTA1LTFhNzAtNGEyMy05NGIyLTIxZmZlNWI2NGU5NA.png" alt=""> &nbsp;
+							</a></div>
+							
+						</div>
+						<div class="basic-detail-block-detail-item ">
+							<div class="basic-detail-block-title"><a  target="_blank" href="https://www.mrisoftware.com/"><img style="height:25px;" src="img/MRI_Software_logo.svg_-1.png" alt=""> &nbsp;
+							</a></div>
+							
+						</div>
+						<div class="basic-detail-block-detail-item ">
+							<div class="basic-detail-block-title">
+							<a  target="_blank" href="http://yardi.com"><img style="height:17px;" src="img/yardi.png" alt=""> &nbsp;
+							</a></div>
+							
+						</div>
+						<div class="basic-detail-block-detail-item ">
+							<div class="basic-detail-block-title">
+							 &nbsp;
+							<a  target="_blank" href="http://salesforce.com"><img style="height:25px;" src="img/SFDC_logo.png" alt=""></a></div>
+							
+						</div>
+						<div class="basic-detail-block-detail-item ">
+							<div class="basic-detail-block-title">
+							
+							<a  target="_blank" href="http://www.vts.com"><img style="height:25px;" src="img/VTS.png" alt=""></a></div>
+							
+						</div>
+						<div class="basic-detail-block-detail-item ">
+							<div class="basic-detail-block-title">
+							
+							<a  target="_blank" href="http://www.appfolio.com"><img style="height:25px;" src="img/appfolio.png" alt=""></a></div>
+							
+						</div>
+						<div class="basic-detail-block-detail-item ">
+							<div class="basic-detail-block-title">
+							<a  target="_blank" href="">Add +</a></div>
+							
+						</div>
+						
+					</div>
+				</div>
+				<!--Epic Only-->
+				<div class="basic-detail-block">
+					<div class="basic-detail-main-title">For Internal Use Only - Recorded Documents</div>
+					<div class="basic-detail-block-detail-container">
+						<div class="basic-detail-block-detail-item full">
+							<div class="basic-detail-block-title"><a target="_blank" href="img/mortgage2.png">Assignment</a></div>
+						</div>
+						<div class="basic-detail-block-detail-item full">
+							<div class="basic-detail-block-title"><a target="_blank" href="img/mortgage.png">Mortgage</a></div>
+						</div>
+						<div class="basic-detail-block-detail-item full">
+							<div class="basic-detail-block-title"><a target="_blank" href="img/satisfaction-of-mortgage.png">Satisfaction of Mortgage</a></div>
+						</div>
+						
+						
+						
+					</div>
+				</div>
+				<div style="height:300px;"></div>
+		</div>
+		</div>
+		</div>
+	</div>
+</div>
+
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+    <script src="js/tooltipster.bundle.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/wow.js"></script>
+    <script>
+		var geojson = {
+    "type": "FeatureCollection",
+    "features": [
+        
+        {
+            "type": "Feature",
+            "properties": {
+                "message": "Epic",
+                "iconSize": [50, 50]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -74.019225,
+                    40.640571
+                ]
+            }
+        },
+        
+    ]
+};
+		$(document).ready(function(){
+		mapboxgl.accessToken = 'pk.eyJ1IjoiZGV4aG9uc2EiLCJhIjoiY2luejFndTViMThsNnUya2o5bThpemRsaSJ9.GFlYLJmm5XmM-cGc57UH9g';
+		var map = new mapboxgl.Map({
+		container: 'map',
+		style: 'mapbox://styles/mapbox/streets-v10',
+		zoom: 16
+		});
+			
+		
+			map.flyTo({
+				center: [
+					-74.019225,
+					40.640571]
+			});
+			geojson.features.forEach(function(marker) {
+			// create a DOM element for the marker
+			var el = document.createElement('div');
+			el.className = 'marker';
+			el.style.backgroundImage = 'url(img/epic_building_small.png)';
+			el.style.width = marker.properties.iconSize[0] + 'px';
+			el.style.height = marker.properties.iconSize[1] + 'px';
+
+			el.addEventListener('click', function() {
+				window.alert(marker.properties.message);
+			});
+
+			// add marker to map
+			new mapboxgl.Marker(el)
+				.setLngLat(marker.geometry.coordinates)
+				.addTo(map);
+		});
+		})
+	</script>
+	<script>
+		
+		$(document).ready(function(){
+			$('.tooltip').tooltipster();
+			
+		})
+		$('#alerts').click(function(){
+			if($(this).children('.notifications-dropdown').hasClass('fadeInUp')){
+				$(this).children('.notifications-dropdown').removeClass('fadeInUp').addClass('fadeOutDown');
+				setTimeout(function(){
+					$(this).children('.notifications-dropdown').hide();
+				},300)
+			}else{
+				$(this).children('.notifications-dropdown').show().removeClass('fadeOutDown').addClass('fadeInUp');
+			}
+		})
+		$('#logout').click(function(){
+			if($(this).children('.notifications-dropdown').hasClass('fadeInUp')){
+				$(this).children('.notifications-dropdown').removeClass('fadeInUp').addClass('fadeOutDown');
+				setTimeout(function(){
+					$(this).children('.notifications-dropdown').hide();
+				},300)
+			}else{
+				$(this).children('.notifications-dropdown').show().removeClass('fadeOutDown').addClass('fadeInUp');
+			}
+		})
+		
+		
+		$(window).scroll(function () { 
+			var scroll = $(window).scrollTop();
+			
+			if(scroll > 50){
+				$('.fixed-address-bar').show().removeClass('fadeOutUp').addClass('fadeInDown');
+			}else{
+				$('.fixed-address-bar').removeClass('fadeInDown').addClass('fadeOutUp');
+			}
+		});
+	</script>
+</body>
+</html>

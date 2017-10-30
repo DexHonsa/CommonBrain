@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+	
+    <title>CommonBrain</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="icon" href="img/logo_1.png">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/animate.css">
+<!--    <link rel="stylesheet" href="css/css.css">-->
+   <link rel="stylesheet" href="css/product.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+   
+   
+
+    <!-- Custom Fonts -->
+    <script src="https://use.fontawesome.com/5e41b39538.js"></script>
+	
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+<div class="main-stage">
+	<div class="main-nav">
+	<div class="container nav-container">
+		<div class="logo"><img src="img/logo_color_with_line.png" alt=""></div>
+		<div class="nav-list">
+			<ul>
+				<a href="dashboard.html"><li>Getting Started</li></a>
+				<a href="my-projects.html"><li class="active">My Portfolios</li></a>
+				<a href="my-templates.html"><li>My Templates</li></a>
+			</ul>
+			<ul class="login-list">
+				<li>Welcome</li>
+				<li id="logout"><i class="fa fa-user-circle-o"></i>
+				<div class="notifications-dropdown animated-fast">
+						<div class="caret"></div>
+					<a href="login.html">Logout</a><br>
+					<a href="settings.html">Settings</a>
+					</div>
+					</li>
+				<li id="alerts"><i class="fa fa-bell"></i>
+					<div class="notifications-dropdown animated-fast">
+						<div class="caret"></div>
+					No New Notifications</div>
+				</li>
+			</ul>
+		</div>
+		</div>
+	</div>
+	<div class="container">
+	<div class="row">
+		<div class="col-sm-3">
+			<div class="side-nav">
+				<ul>
+					<a href="property_1.html"><li>Property</li></a>
+<!--					<a href="mortgage_1.html"><li>Loan</li></a>-->
+					
+					<a href="property-exporting_1.html"><li>Asset Summary</li></a>
+<!--					<a href="property-files_1.html"><li>Files</li></a>-->
+					
+					<div class="divider"></div>
+					<li style="color:#d0d0d0">Visualize Portfolio</li>
+					<a href="property-exceptions_1.html"><li  class="active">Exceptions</li></a>
+<!--					<a href="img/Sample Property Template.xlsx"><li>Main Template</li></a>-->
+				</ul>
+				<div class="broker-container">
+					<div class="broker-img"></div>
+					<div class="broker-name">Swany Vazquez</div>
+					<div class="broker-email"><a href="mailto:svazquez@epic-cr.com">svazquez@epic-cr.com</a></div>
+					<div class="broker-phone"><i class="fa fa-mobile"></i> (646) 278-4638</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-9">
+			<div class="side-stage">
+				<div class="side-stage-title">Exceptions</div>
+				
+				<div class="exporting-options">
+					<div class="property-selector"><select name="property" id="">
+					<option value="">6024 4th Avenue, Brooklyn, NY 11220</option>
+					<option value="">18 South Palmer Rd Miami Lakes, FL 33015</option>
+					<option value="">6135 NW 167th Street E-7 Miami Lakes, FL 33015</option>
+				</select></div>
+					<div class="download-report-btn">Download Excel</div>
+				</div>
+				
+				<div class="exceptions-container">
+					
+					<div class="exception-item mild">
+						<div class="exception-icon">1</div>
+						<div class="exception-title">Gross Square Footage ≠ Square Footage per Public Record.<br><div class="exceptions-severity">Mild</div></div>
+					</div>
+<!--
+					<div class="exception-item severe">
+						<div class="exception-icon">2</div>
+						<div class="exception-title">FEI/EIN Number Left Blank<br><div class="exceptions-severity">High</div></div>
+					</div>
+-->
+					
+				</div>
+							
+		</div>
+		</div>
+		</div>
+	</div>
+</div>
+
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/wow.js"></script>
+	<script>
+		$('#alerts').click(function(){
+			if($(this).children('.notifications-dropdown').hasClass('fadeInUp')){
+				$(this).children('.notifications-dropdown').removeClass('fadeInUp').addClass('fadeOutDown');
+				setTimeout(function(){
+					$(this).children('.notifications-dropdown').hide();
+				},300)
+			}else{
+				$(this).children('.notifications-dropdown').show().removeClass('fadeOutDown').addClass('fadeInUp');
+			}
+		})
+		$('#logout').click(function(){
+			if($(this).children('.notifications-dropdown').hasClass('fadeInUp')){
+				$(this).children('.notifications-dropdown').removeClass('fadeInUp').addClass('fadeOutDown');
+				setTimeout(function(){
+					$(this).children('.notifications-dropdown').hide();
+				},300)
+			}else{
+				$(this).children('.notifications-dropdown').show().removeClass('fadeOutDown').addClass('fadeInUp');
+			}
+		})
+	</script>
+</body>
+</html>

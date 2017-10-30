@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+	
+    <title>CommonBrain</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="icon" href="img/logo_1.png">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/animate.css">
+<!--    <link rel="stylesheet" href="css/css.css">-->
+   <link rel="stylesheet" href="css/product.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+   
+   
+
+    <!-- Custom Fonts -->
+    <script src="https://use.fontawesome.com/5e41b39538.js"></script>
+	
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+<div class="main-stage">
+	<div class="main-nav">
+	<div class="container nav-container">
+		<div class="logo"><img src="img/logo_color_with_line.png" alt=""></div>
+		<div class="nav-list">
+			<ul>
+				<a href="dashboard.html"><li class="active">Getting Started</li></a>
+				<a href="my-projects.html"><li>My Portfolios</li></a>
+				<a href="my-templates.html"><li>My Templates</li></a>
+			</ul>
+			<ul class="login-list">
+				<li>Welcome</li>
+				<li id="logout"><i class="fa fa-user-circle-o"></i>
+				<div class="notifications-dropdown animated-fast">
+						<div class="caret"></div>
+					<a href="login.html">Logout</a><br>
+					<a href="settings.html">Settings</a>
+					</div>
+					</li>
+				<li id="alerts"><i class="fa fa-bell"></i>
+					<div class="notifications-dropdown animated-fast">
+						<div class="caret"></div>
+					No New Notifications</div>
+				</li>
+			</ul>
+		</div>
+		</div>
+	</div>
+	<div class="container">
+	<div class="row">
+		<div class="col-sm-3">
+			<div class="side-nav">
+				<ul>
+					<a href="dashboard.html"><li>Getting Started</li></a>
+					<a href="faq.html"><li class="active">FAQ</li></a>
+					
+				</ul>
+			</div>
+		</div>
+		<div class="col-sm-9">
+			<div class="side-stage">
+				<div class="side-stage-title">Frequently Asked Questions</div>
+				
+				
+				<div class="settings-container">
+					<div class="faq-container">
+						<div class="faq-item">
+							<div class="faq-question"><span><i class="fa fa-question-circle"></i></span>How secure is the CommonBrain software? How can we ensure our data is safe?</div>
+							<div class="faq-answer">Security is a top priority for CommonBrain. We host our platform on Amazon Web Services (AWS), which is in compliance with the most security-sensitive organizations throughout the world. This powerful infrastructure uses safeguards to protect customer privacy having all of your data stored in the most secure AWS data centers.</div>
+						</div>
+						<div class="faq-item">
+							<div class="faq-question"><span><i class="fa fa-question-circle"></i></span>How does the data in CommonBrain get populated?</div>
+							<div class="faq-answer">There are multiple ways your data can be populated, which can be done by you or CommonBrain staff. The simplest way is to bulk import data from a standard Excel file.  If your workflow uses Excel templates we can grab data as long as there is some level of consistency amongst files in your asset portfolio.  If you do not have consistent templates, CommonBrain can give you some “best practices” approaches.
+</div>
+						</div>
+						<div class="faq-item">
+							<div class="faq-question"><span><i class="fa fa-question-circle"></i></span>How does CommonBrain integrate with outside data sources?</div>
+							<div class="faq-answer">This depends on the type of data we are integrating with, so this answer varies. Typically, with outside data sources we connect through an application program interface (API or ReST API). Our development team has worked with a wide range of vendors and we acknowledge the easiest way to pull this data is through an API. However, we have ran into situations, typically with legacy software systems, where it is not possible to integrate with an API. In these instances, we use the ETL process (extract, transform, load). This is a manual process that typically includes us having to get read-only access to the system or software from where data is pulled. After that initial step, we set up CAB files to pull from the data source in the ETL process. Through the CAB files we can set up a regular frequency to pull the data. This is as close as one can get to real-time data without an API.</div>
+						</div>
+					</div>
+				</div>
+							
+		</div>
+		</div>
+		</div>
+	</div>
+</div>
+
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/wow.js"></script>
+	<script>
+		$('#alerts').click(function(){
+			if($(this).children('.notifications-dropdown').hasClass('fadeInUp')){
+				$(this).children('.notifications-dropdown').removeClass('fadeInUp').addClass('fadeOutDown');
+				setTimeout(function(){
+					$(this).children('.notifications-dropdown').hide();
+				},300)
+			}else{
+				$(this).children('.notifications-dropdown').show().removeClass('fadeOutDown').addClass('fadeInUp');
+			}
+		})
+		$('#logout').click(function(){
+			if($(this).children('.notifications-dropdown').hasClass('fadeInUp')){
+				$(this).children('.notifications-dropdown').removeClass('fadeInUp').addClass('fadeOutDown');
+				setTimeout(function(){
+					$(this).children('.notifications-dropdown').hide();
+				},300)
+			}else{
+				$(this).children('.notifications-dropdown').show().removeClass('fadeOutDown').addClass('fadeInUp');
+			}
+		})
+	</script>
+</body>
+</html>

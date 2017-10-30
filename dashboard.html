@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+	
+    <title>CommonBrain</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="icon" href="img/logo_1.png">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/animate.css">
+   <link rel="stylesheet" href="css/product.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+   
+   
+
+    <script src="https://use.fontawesome.com/5e41b39538.js"></script>
+
+</head>
+
+<body>
+
+<div class="main-stage">
+	<div class="main-nav">
+	<div class="container nav-container">
+		<div class="logo"><img src="img/logo_color_with_line.png" alt=""></div>
+		<div class="nav-list">
+			<ul>
+				<a href="dashboard.html"><li  class="active">Getting Started</li></a>
+				<a href="my-projects.html"><li>My Portfolios</li></a>
+				<a href="my-templates.html"><li>My Templates</li></a>
+			</ul>
+			<ul class="login-list">
+				<li>Welcome</li>
+				<li id="logout"><i class="fa fa-user-circle-o"></i>
+				<div class="notifications-dropdown animated-fast">
+						<div class="caret"></div>
+					<a href="login.html">Logout</a><br>
+					<a href="settings.html">Settings</a>
+					</div>
+					</li>
+				<li id="alerts"><i class="fa fa-bell"></i>
+					<div class="notifications-dropdown animated-fast">
+						<div class="caret"></div>
+					No New Notifications</div>
+				</li>
+			</ul>
+		</div>
+		</div>
+	</div>
+	<div class="container">
+	<div class="row">
+		<div class="col-sm-4">
+			<div class="side-nav">
+				<ul>
+					<li class="active">Getting Started</li>
+					<a href="faq.html"><li>FAQ</li></a>
+				</ul>
+			</div>
+		</div>
+		<div class="col-sm-8">
+			<div class="side-stage">
+				<div class="side-stage-title">Getting Started</div>
+				<div class="main-desc">Upload your data to CommonBrain quickly and easily.  Choose a type of import below to get started.</div>
+				<div class="side-stage-title small">Portfolio Name</div>
+				<input class="project-name-input" type="text"/>
+				<div class="side-stage-title small">We Support <span style="color:#FF7600">Any System</span> That Exports To Excel</div>
+				<div class="system-icons">
+					<div class="system-icon"><img src="img/AAEAAQAAAAAAAAmkAAAAJGZjNDZmOTA1LTFhNzAtNGEyMy05NGIyLTIxZmZlNWI2NGU5NA.png" alt=""></div>
+					<div class="system-icon"><img src="img/MRI_Software_logo.svg_-1.png" alt=""></div>
+					<div class="system-icon"><img src="img/SFDC_logo.png" alt=""></div>
+					<div class="system-icon"><img src="img/yardi.png" alt=""></div>
+				</div>
+				<div style="width:100%; text-align: center;">
+					<img style="width:100%; display: inline-block;" src="img/include.png" alt="">
+				</div>
+				<div class="drag-and-drop">
+					<div class="drag-and-drop-img">
+						<img src="img/Excel-Logo-Home-Page.png" alt=""><br>
+
+						Drag and Drop Excel Documents
+					</div>
+				</div>
+				<div class="render-btn-container">
+					<div class="render-btn">Render Your Data</div>
+				</div>
+				<div style="height:300px;"></div>
+			</div>
+		</div>
+		</div>
+	</div>
+</div>
+
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/wow.js"></script>
+	<script>
+		$('#alerts').click(function(){
+			if($(this).children('.notifications-dropdown').hasClass('fadeInUp')){
+				$(this).children('.notifications-dropdown').removeClass('fadeInUp').addClass('fadeOutDown');
+				setTimeout(function(){
+					$(this).children('.notifications-dropdown').hide();
+				},300)
+			}else{
+				$(this).children('.notifications-dropdown').show().removeClass('fadeOutDown').addClass('fadeInUp');
+			}
+		})
+		$('#logout').click(function(){
+			if($(this).children('.notifications-dropdown').hasClass('fadeInUp')){
+				$(this).children('.notifications-dropdown').removeClass('fadeInUp').addClass('fadeOutDown');
+				setTimeout(function(){
+					$(this).children('.notifications-dropdown').hide();
+				},300)
+			}else{
+				$(this).children('.notifications-dropdown').show().removeClass('fadeOutDown').addClass('fadeInUp');
+			}
+		})
+	</script>
+</body>
+</html>

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+	
+    <title>CommonBrain</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="icon" href="img/logo_1.png">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/css.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+   
+   
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+	<div class="main-nav">
+		<div class="container">
+		<div class="logo">
+			<img src="img/logo_white.png" alt="">
+		</div>
+			<ul class="nav-list">
+				
+				<li class="services-btn">Services</li>
+				<li class="aboutus-btn">About Us</li>
+			</ul>
+			<ul class="login-list">
+				<a href="login.html"><li>Login</li></a>
+				<li><div class="signup-btn">Sign Up</div></li>
+
+			</ul>
+		</div>
+	</div>
+	<div class="mobile-nav">
+		<div class="mobile-nav-toggle"><i class="fa fa-bars"></i></div>
+		<div class="mobile-nav-list">
+			<ul>
+				
+				<li class="services-btn">Services</li>
+				<li class="aboutus-btn">About Us</li>
+			</ul>
+		</div>
+	</div>
+	<div class="login-section">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-6">
+				<div class="login-title">Login To CommonBrain</div>
+				<div class="login-inputs">
+					<div class="login-input-item">
+						
+						<input class="login-input-input" id="email_input" type="text">
+						<div class="login-input-title">Email / Username</div>
+					</div>
+					<div class="login-input-item">
+						
+						<input class="login-input-input" id="password_input" type="password">
+						<div class="login-input-title">Password</div>
+					</div>
+					<div class="error-msg">Your Informarion Is Incorrect</div>
+					<div class="login-btn">Login</div>
+				</div>
+			</div>
+			<div class="col-sm-6" style="display:flex; align-items: center; justify-content: center;">
+			<div class="main-logo-container wow animated fadeInUp"><img src="img/logo_color_with_line.png" alt=""></div>
+			</div>
+		</div>
+	</div>
+	</div>
+  <div class="footer">
+  	Copyright 2017 CommonBrain
+  </div>
+   
+   
+   
+   
+   
+	<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/wow.js"></script>
+    <script>
+		
+	$('.login-input-input').focusin(function(){
+		$(this).siblings('.login-input-title').addClass('active');
+	})
+	$('.login-input-input').focusout(function(){
+		if($(this).val() != ''){
+			
+		}else{
+			$(this).siblings('.login-input-title').removeClass('active');
+		}
+		
+	})
+	
+	$('.login-btn').click(function(){
+		var email = $('#email_input').val();
+		var password = $('#password_input').val();
+		
+			if(password == 'epic1234'){
+				window.location = 'login_epic.php';
+			}else{
+				$('.error-msg').css('display', 'block');
+			}
+		if(password == 'cb1234'){
+				window.location = 'login.php';
+			}else{
+				$('.error-msg').css('display', 'block');
+			}
+		
+	})
+	
+	new WOW().init();
+			
+			$('.mobile-nav-toggle').click(function(){
+				if($(this).hasClass('active')){
+					$('.mobile-nav-toggle').removeClass('active');
+					
+					$('.mobile-nav-list ul').slideUp('fast');
+					setTimeout(function(){
+						$('.mobile-nav-list').hide();
+					},300)
+					
+				}else{
+					$(this).addClass('active');
+					$('.mobile-nav-list').show();
+					$('.mobile-nav-list ul').slideDown('fast');
+				}
+				
+				
+			})
+			$('.mobile-nav-list ul li').click(function(){
+				$('.mobile-nav-toggle').removeClass('active');
+				$('.mobile-nav-list ul').slideUp('fast');
+					setTimeout(function(){
+						$('.mobile-nav-list').hide();
+					},300)
+			})
+	
+			
+			$('.submit-btn').click(function(){
+				var email = $('#email').attr('id');
+				var name = $('#name').attr('id');
+				var company = $('#company').attr('id');
+				var ready = false;
+				
+				if($('#email').val() == ''){
+					$('#email').addClass('error');
+					ready = false;
+				}
+				if($('#name').val() == ''){
+					$('#name').addClass('error');
+					ready = false;
+				}
+				if($('#company').val() == ''){
+					$('#company').addClass('error');
+					ready = false;
+				}
+				if($('#email').val() != '' && $('#name').val() != '' && $('#company').val() != ''){
+					ready = true;
+				}
+				
+				if(ready == true){
+					$('.submit-btn').addClass('sent');
+					$('#email').removeClass('error');
+					$('#name').removeClass('error');
+					$('#company').removeClass('error');
+					
+					$.ajax({
+					type:'POST',
+					url:'mail.php',
+					data:{email:email,name:name,company:company},
+					success:function(){
+						$('#email').val('');
+						$('#name').val('');
+						$('#company').val('');
+						$('.submit-btn').html('Sent');
+					}
+				})
+				}
+				
+			})
+		$('.services-btn').click(function(){
+			$('html, body').animate({
+				scrollTop: $("#services").offset().top
+			}, 1000);
+		})
+		$('.aboutus-btn').click(function(){
+			$('html, body').animate({
+				scrollTop: $("#aboutus").offset().top
+			}, 1000);
+		})
+	
+		
+	</script>
+    
+</body>
+
+</html>

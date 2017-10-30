@@ -1,0 +1,196 @@
+
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+	
+    <title>CommonBrain</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="icon" href="img/logo_1.png">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/animate.css">
+<!--    <link rel="stylesheet" href="css/css.css">-->
+   <link rel="stylesheet" href="css/product.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+   
+   
+
+    <!-- Custom Fonts -->
+    <script src="https://use.fontawesome.com/5e41b39538.js"></script>
+	
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+<div class="main-stage">
+	<div class="main-nav">
+	<div class="container nav-container">
+		<div class="logo"><img src="img/logo_color_with_line.png" alt=""></div>
+		<div class="nav-list">
+			<ul>
+				<a href="dashboard.html"><li>Getting Started</li></a>
+				<a href="my-projects.html"><li class="active">My Portfolios</li></a>
+				<a href="my-templates.html"><li>My Templates</li></a>
+			</ul>
+			<ul class="login-list">
+				<li>Welcome</li>
+				<li id="logout"><i class="fa fa-user-circle-o"></i>
+				<div class="notifications-dropdown animated-fast">
+						<div class="caret"></div>
+					<a href="login.html">Logout</a><br>
+					<a href="settings.html">Settings</a>
+					</div>
+					</li>
+				<li id="alerts"><i class="fa fa-bell"></i>
+					<div class="notifications-dropdown animated-fast">
+						<div class="caret"></div>
+					No New Notifications</div>
+				</li>
+			</ul>
+		</div>
+		</div>
+	</div>
+	<div class="container">
+	<div class="row">
+		<div class="col-sm-4">
+			<div class="side-nav">
+				<ul>
+					<li class="active">My Portfolios</li>
+					
+					
+				</ul>
+			</div>
+		</div>
+		<div class="col-sm-8">
+			<div class="side-stage">
+				<div class="side-stage-title">Epic</div>
+				
+				<div class="my-projects-tabs">
+					<div id="files_tab" class="my-projects-tab disabled">Portfolio Files</div>
+					<div id="properties_tab" class="my-projects-tab active">Property Files</div>
+				</div>
+				
+						
+							
+								<div id="files">
+								<div class="file-item-headers">
+									<div class="file-item-header" style="margin-right: 15px;">File Name</div>
+									
+									<div class="file-item-header">Date Created</div>
+									<div class="file-item-header">Date Modified</div>
+								</div>
+								<a href="property_1.html"><div class="file-item">
+									<div class="icon"><i class="fa fa-file"></i></div>
+									<div class="file-item-value">Brooklyn.xlsx</div>
+									
+									<div class="file-item-value">08/01/2017</div>
+									<div class="file-item-value">08/01/2017</div>
+								</div></a>
+								</div>
+								<div id="properties" style="display: none;">
+								<div class="file-item-headers">
+									<div class="file-item-header" style="margin-right: 15px;">Property Name</div>
+									
+									
+								</div>
+								<a href="property_1.html"><div class="file-item">
+									<div class="icon"><i class="fa fa-file"></i></div>
+									<div class="file-item-value"  style="width:100%">6135 NW 167th Street Miami Lakes, FL 33015.xlsx</div>
+									
+									
+									
+								</div></a>
+								<a href="property_1.html"><div class="file-item">
+									<div class="icon"><i class="fa fa-file"></i></div>
+									<div class="file-item-value" style="width:100%">18 South Palmer Rd Miami Lakes, FL 33015.xlsx</div>
+									
+									
+									
+								</div></a>
+								<a href="property_1.html"><div class="file-item">
+									<div class="icon"><i class="fa fa-file"></i></div>
+									<div class="file-item-value"  style="width:100%">6135 NW 167th Street E-7 Miami Lakes, FL 33015.xlsx</div>
+									
+									
+									
+								</div></a>
+								</div>
+								
+							
+						
+			</div>
+		</div>
+		</div>
+	</div>
+</div>
+
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/wow.js"></script>
+	<script>
+		$('#files_tab').click(function(){
+			$('#properties_tab').removeClass('active');
+			$(this).addClass('active');
+			$('#properties').hide();
+			$('#files').show();
+			
+		})
+		$('#properties_tab').click(function(){
+			$('#properties_tab').removeClass('active');
+			$(this).addClass('active');
+			$('#properties').hide();
+			$('#files').show();
+			
+		})
+		$('#alerts').click(function(){
+			if($(this).children('.notifications-dropdown').hasClass('fadeInUp')){
+				$(this).children('.notifications-dropdown').removeClass('fadeInUp').addClass('fadeOutDown');
+				setTimeout(function(){
+					$(this).children('.notifications-dropdown').hide();
+				},300)
+			}else{
+				$(this).children('.notifications-dropdown').show().removeClass('fadeOutDown').addClass('fadeInUp');
+			}
+		})
+		$('#logout').click(function(){
+			if($(this).children('.notifications-dropdown').hasClass('fadeInUp')){
+				$(this).children('.notifications-dropdown').removeClass('fadeInUp').addClass('fadeOutDown');
+				setTimeout(function(){
+					$(this).children('.notifications-dropdown').hide();
+				},300)
+			}else{
+				$(this).children('.notifications-dropdown').show().removeClass('fadeOutDown').addClass('fadeInUp');
+			}
+		})
+		$.ajax({
+			type:'POST',
+			url:'login-check.php',
+			success:function(data){
+				if(data == 'bad'){
+					window.location = 'login.html'
+				}
+				console.log('done');
+			}
+				
+		})
+	</script>
+</body>
+</html>

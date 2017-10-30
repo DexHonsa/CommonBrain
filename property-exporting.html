@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+	
+    <title>CommonBrain</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="icon" href="img/logo_1.png">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/animate.css">
+<!--    <link rel="stylesheet" href="css/css.css">-->
+   <link rel="stylesheet" href="css/product.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+   
+   
+
+    <!-- Custom Fonts -->
+    <script src="https://use.fontawesome.com/5e41b39538.js"></script>
+	
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+<div class="main-stage">
+	<div class="main-nav">
+	<div class="container nav-container">
+		<div class="logo"><img src="img/logo_color_with_line.png" alt=""></div>
+		<div class="nav-list">
+			<ul>
+				<a href="dashboard.html"><li>Getting Started</li></a>
+				<a href="my-projects.html"><li class="active">My Portfolios</li></a>
+				<a href="my-templates.html"><li>My Templates</li></a>
+			</ul>
+			<ul class="login-list">
+				<li>Welcome</li>
+				<li id="logout"><i class="fa fa-user-circle-o"></i>
+				<div class="notifications-dropdown animated-fast">
+						<div class="caret"></div>
+					<a href="login.html">Logout</a><br>
+					<a href="settings.html">Settings</a>
+					</div>
+					</li>
+				<li id="alerts"><i class="fa fa-bell"></i>
+					<div class="notifications-dropdown animated-fast">
+						<div class="caret"></div>
+					No New Notifications</div>
+				</li>
+			</ul>
+		</div>
+		</div>
+	</div>
+	<div class="container">
+	<div class="row">
+		<div class="col-sm-3">
+			<div class="side-nav">
+				<ul>
+					<a href="property.html"><li>Property</li></a>
+					<a href="mortgage.html"><li>Loan</li></a>
+					
+					<a href="property-exporting.html"><li class="active">Asset Summary</li></a>
+<!--					<a href="property-files.html"><li>Files</li></a>-->
+					
+					<div class="divider"></div>
+					<a href="property-graphs.html"><li>Visualize</li></a>
+					<a href="property-exceptions.html"><li>Exceptions</li></a>
+<!--					<a href="img/Sample Property Template.xlsx"><li>Main Template</li></a>-->
+				</ul>
+			</div>
+		</div>
+		<div class="col-sm-9">
+			<div class="side-stage">
+				
+				<div class="property-main-title">6135 NW 167th Street Miami Lakes, FL 33015</div>
+				<div class="exporting-options">
+					<div class="exporting-option-selector">
+						<select><option selected>Summary Report</option><option>Detailed Report</option></select>
+					</div>
+					<div class="download-report-btn">Download PDF</div>
+				</div>
+				<div style="text-align: center; width:100%; font-size: 12pt; margin-top:25px; font-weight: 500;">Asset Summary Preview</div>
+				<div class="exporting-sample-container">
+					<div class="exporting-sample-img"><img src="img/export_report.jpg" alt=""></div>
+				</div>
+				<div style="height:300px"></div>
+				
+				
+							
+		</div>
+		</div>
+		</div>
+	</div>
+</div>
+
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/wow.js"></script>
+	<script>
+		$('#alerts').click(function(){
+			if($(this).children('.notifications-dropdown').hasClass('fadeInUp')){
+				$(this).children('.notifications-dropdown').removeClass('fadeInUp').addClass('fadeOutDown');
+				setTimeout(function(){
+					$(this).children('.notifications-dropdown').hide();
+				},300)
+			}else{
+				$(this).children('.notifications-dropdown').show().removeClass('fadeOutDown').addClass('fadeInUp');
+			}
+		})
+		$('#logout').click(function(){
+			if($(this).children('.notifications-dropdown').hasClass('fadeInUp')){
+				$(this).children('.notifications-dropdown').removeClass('fadeInUp').addClass('fadeOutDown');
+				setTimeout(function(){
+					$(this).children('.notifications-dropdown').hide();
+				},300)
+			}else{
+				$(this).children('.notifications-dropdown').show().removeClass('fadeOutDown').addClass('fadeInUp');
+			}
+		})
+	</script>
+</body>
+</html>
